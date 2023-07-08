@@ -1,0 +1,39 @@
+.center {
+  border: 2px solid #3f51b5;
+  text-align: center;
+  background: #fff;
+  width: 500px;
+  margin: 65px auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(163, 163, 163, 0.2);
+}
+
+.title {
+  margin-top: 120px;
+  font-size: 20px;
+}
+
+.login {
+  margin-bottom: 100px;
+}
+
+.name {
+  color: #3f51b5;
+}
+
+.icon {
+  color: #3f51b5;
+}
+
+.titleIcon {
+  color: #3f51b5;
+  transform: scale(2);
+  position: relative;
+  top: 24%;
+  left: 49%;
+}

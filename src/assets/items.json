@@ -1,0 +1,7 @@
+[   
+    {"id": 1, "name": "Headphones", "quantity": 100, "price": 20, "count": 70, "add": "1"},  
+    {"id": 2, "name": "Chargers", "quantity": 200, "price": 16, "count": 20, "add": "2"},  
+    {"id": 3, "name": "Pen drive", "quantity": 400, "price": 16, "count": 100, "add": "3"},  
+    {"id": 4, "name": "LAN Cables", "quantity": 200, "price": 7, "count": 100, "add": "4"},  
+    {"id": 5, "name": "Smart watches", "quantity": 200, "price": 320, "count": 60, "add": "5"}
+]

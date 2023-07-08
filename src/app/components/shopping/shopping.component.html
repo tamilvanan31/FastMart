@@ -1,0 +1,110 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon class="homeIcon">polymer</mat-icon>
+  </button>
+  <span style="margin-left: 5px"
+    >Welcome <b>{{ username }}</b></span
+  >
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="openCart()">
+    <mat-icon [matBadge]="labelCount" matBadgeColor="warn"
+      >add_shopping_cart</mat-icon
+    >
+  </button>
+</mat-toolbar>
+<div class="container">
+  <div class="p">
+    <button mat-button>Price</button>
+    <button
+      mat-raised-button
+      (click)="orderData('price', 'asc')"
+      style="margin-left: 67px"
+    >
+      Low to High
+    </button>
+    <button
+      mat-raised-button
+      (click)="orderData('price', 'desc')"
+      style="margin-left: 5px"
+    >
+      High to Low
+    </button>
+  </div>
+  <br />
+  <div class="q">
+    <button mat-button>Quantity</button>
+    <button
+      mat-raised-button
+      (click)="orderData('quantity', 'asc')"
+      style="margin-left: 53px"
+    >
+      Low to High
+    </button>
+    <button
+      mat-raised-button
+      (click)="orderData('quantity', 'desc')"
+      style="margin-left: 5px"
+    >
+      High to Low
+    </button>
+  </div>
+  <div class="r">
+    <button mat-button>Available Count</button>
+    <button mat-raised-button (click)="orderData('count', 'asc')">
+      Low to High
+    </button>
+    <button
+      mat-raised-button
+      (click)="orderData('count', 'desc')"
+      style="margin-left: 5px"
+    >
+      High to Low
+    </button>
+  </div>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let item">{{ item.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+      <td mat-cell *matCellDef="let item" (click)="getItem(item)">
+        {{ item.name }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</th>
+      <td mat-cell *matCellDef="let item">{{ item.quantity }}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+      <td mat-cell *matCellDef="let item">{{ item.price | currency }}</td>
+    </ng-container>
+    <ng-container matColumnDef="count">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Available count</th>
+      <td mat-cell *matCellDef="let item">{{ item.count }}</td>
+    </ng-container>
+    <ng-container matColumnDef="add">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let item">
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="updateItems(item)"
+          class="addCart"
+        >
+          Add item
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+      class="example-element-row"
+    ></tr>
+  </table>
+</div>
+<div *ngIf="isDisabled">
+  <app-item-detail [id]="parentID"></app-item-detail>
+</div>
